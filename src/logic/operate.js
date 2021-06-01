@@ -1,6 +1,7 @@
-import Big from "big.js";
+//import Big from "big.js";
+const Big = require('big.js');
 
-export default function operate(numberOne, numberTwo, operation) {
+function operate(numberOne, numberTwo, operation) {
   const one = Big(numberOne || "0");
   const two = Big(numberTwo || (operation === "÷" || operation === 'x' ? "1": "0")); //If dividing or multiplying, then 1 maintains current value in cases of null
   if (operation === "+") {
@@ -22,3 +23,5 @@ export default function operate(numberOne, numberTwo, operation) {
   }
   throw Error(`Unknown operation '${operation}'`);
 }
+
+module.exports = operate;

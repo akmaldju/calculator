@@ -1,7 +1,6 @@
-import Big from "big.js";
-
-import operate from "./operate";
-import isNumber from "./isNumber";
+const Big = require('big.js');
+const operate = require('./operate');
+const isNumber = require('./isNumber');
 
 /**
  * Given a button name and a calculator data object, return an updated
@@ -12,7 +11,10 @@ import isNumber from "./isNumber";
  *   next:String       the next number to be operated on with the total
  *   operation:String  +, -, etc.
  */
-export default function calculate(obj, buttonName) {
+function calculate(obj, buttonName) {
+  console.warn('calculate');
+  console.log(obj);
+  console.log(buttonName);
   if (buttonName === "AC") {
     return {
       total: null,
@@ -132,3 +134,5 @@ export default function calculate(obj, buttonName) {
     operation: buttonName,
   };
 }
+
+module.exports = calculate;
